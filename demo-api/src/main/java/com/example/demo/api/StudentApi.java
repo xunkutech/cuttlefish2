@@ -26,7 +26,7 @@ public interface StudentApi extends RestfulApi {
     String name;
 
     @ApiModelProperty(value = "学生性别")
-    String gander;
+    String gender;
   }
 
   @ApiOperation(

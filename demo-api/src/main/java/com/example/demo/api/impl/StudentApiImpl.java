@@ -24,7 +24,7 @@ public class StudentApiImpl implements StudentApi {
     studentBean =
         StudentBean.builder()
             .name(input.getName())
-            .gender(PersonBean.Gender.valueOf(input.getGander().toUpperCase()))
+            .gender(PersonBean.Gender.valueOf(input.getGender().toUpperCase()))
             .build();
     studentDao.addOrUpdateStudent(studentBean);
     return new ResponseBean<>();
