@@ -26,14 +26,12 @@ public class StudentCourseEntity extends BaseEntity implements Serializable {
   @Column(
       name = "student_id",
       nullable = false,
-      length = 64,
-      columnDefinition = "CHAR(64) COLLATE 'ascii_bin'")
+      length = 64)
   private String studentEntityId;
 
   @Column(
       name = "course_id",
       nullable = false,
-      length = 64,
-      columnDefinition = "CHAR(64) COLLATE 'ascii_bin'")
+      length = 64)
   private String courseEntityId;
 }

@@ -1,1 +1,8 @@
-
+logging:
+  level:
+    org.hibernate: debug
+    org.apache.tomcat: debug
+    org.apache.coyote: debug
+    org.apache.catalina: debug
+    org.springframework: info
+    com.example.demo.dao: debug

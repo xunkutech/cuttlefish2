@@ -15,10 +15,9 @@ public abstract class PersonEntity extends BaseEntity {
   @Column(
       name = "name",
       nullable = false,
-      length = 30,
-      columnDefinition = "VARCHAR(30) COLLATE 'utf8_mb4'")
+      length = 30)
   private String name;
 
-  @Column(name = "gender", nullable = false, columnDefinition = "TINYINT(1)")
+  @Column(name = "gender", nullable = false)
   private Gender gender;
 }

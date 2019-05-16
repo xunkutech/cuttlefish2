@@ -22,15 +22,13 @@ public class CourseEntity extends BaseEntity implements Serializable {
       name = "course_name",
       nullable = false,
       length = 510,
-      unique = true,
-      columnDefinition = "VARCHAR(510) COLLATE 'utf8_mb4'")
+      unique = true)
   private String courseName;
 
   @Column(
       name = "teacher_id",
       nullable = false,
-      length = 64,
-      columnDefinition = "CHAR(64) COLLATE 'ascii_bin'")
+      length = 64)
   private String teacherEntityId;
 
   @Transient private TeacherEntity teacherEntity;

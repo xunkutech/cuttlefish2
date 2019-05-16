@@ -9,6 +9,8 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Repository
 @Transactional(
     readOnly = true,
@@ -25,9 +27,9 @@ public class StudentDao extends AbstractDao {
   @Transactional
   public StudentBean addOrUpdateStudent(StudentBean studentBean) {
     StudentEntity studentEntity =
-        studentEntityRepository
-            .findById(studentBean.getId())
-            .orElseGet(() -> studentEntityRepository.newEntity());
+            studentEntityRepository
+                    .findById(studentBean.getId() == null ? "" : studentBean.getId())
+                    .orElseGet(() -> studentEntityRepository.newEntity());
 
     studentEntity.setName(studentBean.getName());
     studentEntity.setGender(Gender.valueOf(studentBean.getGender().name()));

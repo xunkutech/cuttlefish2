@@ -24,38 +24,35 @@ public abstract class BaseEntity {
       unique = true,
       nullable = false,
       updatable = false,
-      length = 64,
-      columnDefinition = "CHAR(64) COLLATE 'ascii_bin'")
+      length = 64)
   protected String id;
 
   /* Soft delete flag */
-  @Column(name = "active_status", nullable = false, columnDefinition = "TINYINT(1) DEFAULT 0")
+  @Column(name = "active_status", nullable = false)
   @Convert(converter = BooleanStringConverter.class)
   protected Boolean activeStatus = true;
 
   @CreatedBy
   @Column(
-      name = "created_by",
-      nullable = false,
-      length = 64,
-      columnDefinition = "CHAR(64) COLLATE 'ascii_bin'")
-  protected String createdBy;
+          name = "created_by",
+          nullable = false,
+          length = 64)
+  protected String createdBy = "";
 
   @CreatedDate
-  @Column(name = "creation_date", nullable = false, columnDefinition = "BIGINT")
+  @Column(name = "creation_date", nullable = false)
   @Convert(converter = InstantConverter.class)
-  protected Instant creationDate;
+  protected Instant creationDate = Instant.now();
 
   @LastModifiedBy
   @Column(
       name = "last_updated_by",
       nullable = false,
-      length = 64,
-      columnDefinition = "CHAR(64) COLLATE 'ascii_bin'")
-  protected String lastUpdatedBy;
+      length = 64)
+  protected String lastUpdatedBy = "";;
 
   @LastModifiedDate
-  @Column(name = "last_update_date", nullable = false, columnDefinition = "BIGINT")
+  @Column(name = "last_update_date", nullable = false)
   @Convert(converter = InstantConverter.class)
-  protected Instant lastUpdateDate;
+  protected Instant lastUpdateDate = Instant.now();;
 }
