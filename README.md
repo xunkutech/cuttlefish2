@@ -3,10 +3,10 @@
 ### Reference Documentation
 Required Features:
 
-* Model - schema
-* Model - index
-* Model - audit
-* Model - entity relation
+* Model - jpa schema
+* Model - jpa index constraint
+* Model - jpa audit
+* Model - jpa entity inheritance 
 * Model - java db converters
 
 * DAO - Spring Data Specification Query
@@ -19,7 +19,7 @@ Required Features:
 * DAO - Unit test framework
 * DAO - Auto DDL
 * DAO - Multi data source
-* DAO - Spring configuration
+* DAO - Spring data configuration
 
 * Service - Async service
 * Service - sms client
@@ -32,7 +32,7 @@ Required Features:
 * Service - http client
 * Service - Spring Security
 * Service - JWT
-* Service - schedule
+* Service - scheduler
 * Service - pdf maker
 * Service - excel maker
 
@@ -42,7 +42,7 @@ Required Features:
 * Api - validation
 * Api - json Converter
 * Api - file uploader
-* Api - web socket
+* Api - http|rpc|event|web socket
 * Api - mockmvc unit test framework
 * Api - i18n/i10n
 
@@ -50,5 +50,5 @@ Required Features:
 * Misc - multi profile
 * Misc - Dockerfile
 * Misc - frontend integration
-* Misc - maven builder & multi profile
-* Misc - spring boot config server
+* Misc - maven pom management
+* Misc - spring cloud config server
