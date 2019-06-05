@@ -9,3 +9,6 @@ logging:
     org.apache.catalina: debug
     org.springframework: info
     com.example.demo.dao: debug
+spring:
+  jpa:
+    database-platform:

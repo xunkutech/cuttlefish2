@@ -52,3 +52,6 @@ Required Features:
 * Misc - frontend integration
 * Misc - maven pom management
 * Misc - spring cloud config server
+* Misc - jenkins
+* Misc - elasticsearch
+* Misc - kibana
