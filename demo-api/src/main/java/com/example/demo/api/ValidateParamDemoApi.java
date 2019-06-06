@@ -58,24 +58,24 @@ public interface ValidateParamDemoApi {
     @AllArgsConstructor
     class GetStudentInfoRequestBean {
         @ApiModelProperty(value = "学生ID", name = "customerId",example = "sddfsdfds21")
-        @NotBlank(message = "studentId不能为空")
+        @NotBlank(message = "student.id.null")
         String customerId;
 
         @ApiModelProperty(value = "年龄", name = "age",example = "20")
-        @Min(value = 18, message = "年龄不能小于18岁")
-        @Max(value = 120,message = "年龄不能大于120岁")
+        @Min(value = 18, message = "age.lower.than.baseline")
+        @Max(value = 120,message = "age.beyond.upper.limit")
         private Integer age;
 
         @ApiModelProperty(value = "邮箱", name = "email",example = "123213@qq.com")
-        @Email(message = "email格式错误")
+        @Email(message = "email.format.error=")
         private String email;
 
         @ApiModelProperty(value = "手机号", name = "mobile",example = "13111111111")
-        @Pattern(regexp = "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17[013678])|(18[0,5-9]))\\d{8}$", message = "手机号码格式错误")
+        @Pattern(regexp = "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17[013678])|(18[0,5-9]))\\d{8}$", message = "mobile.format.error")
         private String mobile;
 
         @ApiModelProperty(value = "备注", name = "mark",example = "调皮")
-        @Length(max=20,message = "备注信息不能大于20个字符")
+        @Length(max=20,message = "remart.words.exceed")
         private String mark;
 
     }
