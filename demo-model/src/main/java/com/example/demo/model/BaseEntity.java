@@ -3,6 +3,7 @@ package com.example.demo.model;
 import com.example.demo.converter.BooleanStringConverter;
 import com.example.demo.converter.InstantConverter;
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -20,11 +21,14 @@ public abstract class BaseEntity {
   /* Primary key */
   @Id
   @Column(
-      name = "id",
-      unique = true,
-      nullable = false,
-      updatable = false,
-      length = 64)
+          name = "id",
+          unique = true,
+          nullable = false,
+          updatable = false,
+          length = 64,
+          columnDefinition = "CHAR(64)")
+  @GeneratedValue(generator = "idGenerator")
+  @GenericGenerator(name = "idGenerator", strategy = "com.example.demo.util.UUIDGenerator")
   protected String id;
 
   /* Soft delete flag */
