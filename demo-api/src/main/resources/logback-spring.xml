@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+  <property name="LOG_PATH" value="/home/logs" />
+  <property name="APPDIR" value="tsp-project"/>
+  <property name="LOG_MAX_HISTORY" value="30" />
+  <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ssS} %5p [%c]:%L - %m%n" />
+
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>${LOG_PATTERN}</pattern>
+    </encoder>
+  </appender>
+
+  <contextName>RestAPI</contextName>
+
+
+  <appender name="FILEERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${LOG_PATH}/${APPDIR}/log_error.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${LOG_PATH}/${APPDIR}/error/log-error-%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+      <maxHistory>${LOG_MAX_HISTORY}</maxHistory>    </rollingPolicy>
+    <append>true</append>
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <pattern>${LOG_PATTERN}</pattern>
+      <charset>utf-8</charset>
+    </encoder>
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>error</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+  </appender>
+
+  <appender name="FILEWARN" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${LOG_PATH}/${APPDIR}/log_warn.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${LOG_PATH}/${APPDIR}/warn/log-warn-%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+      <maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+    </rollingPolicy>
+    <append>true</append>
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <pattern>${LOG_PATTERN}</pattern>
+      <charset>utf-8</charset>
+    </encoder>
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>warn</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+  </appender>
+
+  <appender name="FILEINFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${LOG_PATH}/${APPDIR}/log_info.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${LOG_PATH}/${APPDIR}/info/log-info-%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+      <maxHistory>${LOG_MAX_HISTORY}</maxHistory>    </rollingPolicy>
+    <append>true</append>
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <pattern>${LOG_PATTERN}</pattern>
+      <charset>utf-8</charset>
+    </encoder>
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>info</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+  </appender>
+
+  <!--配置组件日志输出级别-->
+  <logger name="org.hibernate" level="INFO"/>
+  <logger name="com.zaxxer.hikari" level="INFO"/>
+  <logger name="org.apache.tomcat" level="INFO"/>
+  <logger name="org.apache.coyote" level="INFO"/>
+  <logger name="org.apache.catalina" level="INFO"/>
+  <logger name="org.springframework" level="INFO"/>
+
+  <!--配置多环境日志输出-->
+  <springProfile name="prod">
+    <root level="ERROR">
+      <appender-ref ref="FILEERROR"/>
+      <appender-ref ref="FILEWARN"/>
+    </root>
+  </springProfile>
+
+  <springProfile name="dev">
+    <root level="INFO">
+      <appender-ref ref="FILEERROR"/>
+      <appender-ref ref="FILEWARN"/>
+      <appender-ref ref="FILEINFO"/>
+      <appender-ref ref="CONSOLE"/>
+    </root>
+  </springProfile>
+
+  <springProfile name="test">
+    <root level="DEBUG">
+      <appender-ref ref="FILEERROR"/>
+      <appender-ref ref="FILEWARN"/>
+      <appender-ref ref="FILEINFO"/>
+      <appender-ref ref="CONSOLE"/>
+    </root>
+  </springProfile>
+
+</configuration>
