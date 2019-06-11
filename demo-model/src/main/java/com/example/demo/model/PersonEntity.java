@@ -20,4 +20,8 @@ public abstract class PersonEntity extends BaseEntity {
 
   @Column(name = "gender", nullable = false)
   private Gender gender;
+
+
+  @Column(name = "portrait_id", nullable = false)
+  private String portraitId;
 }

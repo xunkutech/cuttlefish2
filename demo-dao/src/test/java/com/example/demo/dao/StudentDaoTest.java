@@ -3,6 +3,7 @@ package com.example.demo.dao;
 import com.example.demo.dao.bean.PersonBean;
 import com.example.demo.dao.bean.StudentBean;
 import com.example.demo.dao.repo.StudentEntityRepository;
+import com.example.demo.enums.Gender;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,10 +26,10 @@ public class StudentDaoTest extends BaseTest{
     public void setUp(){
         studentBean = StudentBean.builder()
                 .name("BOB")
-                .gender(PersonBean.Gender.MALE)
+                .gender(Gender.MALE)
                 .build();
         studentBean.setName("BOB");
-        studentBean.setGender(PersonBean.Gender.MALE);
+        studentBean.setGender(Gender.MALE);
     }
 
     @After

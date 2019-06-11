@@ -3,8 +3,10 @@ package com.example.demo.api.impl;
 import com.example.demo.api.ResponseBean;
 import com.example.demo.api.StudentApi;
 import com.example.demo.dao.StudentDao;
+import com.example.demo.dao.bean.BinaryObjectBean;
 import com.example.demo.dao.bean.PersonBean;
 import com.example.demo.dao.bean.StudentBean;
+import com.example.demo.enums.Gender;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -26,7 +28,8 @@ public class StudentApiImpl implements StudentApi {
     studentBean =
         StudentBean.builder()
             .name(input.getName())
-            .gender(PersonBean.Gender.valueOf(input.getGender().toUpperCase()))
+            .gender(Gender.valueOf(input.getGender().toUpperCase()))
+                .portraitBean(new BinaryObjectBean(input.getPortrait()))
             .build();
     studentDao.addOrUpdateStudent(studentBean);
     return new ResponseBean<>();

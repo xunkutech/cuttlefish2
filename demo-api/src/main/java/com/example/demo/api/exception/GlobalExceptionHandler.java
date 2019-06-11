@@ -1,6 +1,7 @@
-package com.example.demo.dao.exception;
+package com.example.demo.api.exception;
 
-import com.example.demo.dao.bean.ResponseBean;
+import com.example.demo.api.bean.ResponseBean;
+import com.example.demo.dao.exception.CommonException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.NoSuchMessageException;

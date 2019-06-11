@@ -2,7 +2,9 @@ package com.example.demo.dao.exception;
 
 /** Created by jf on 2019/4/24. */
 public enum ErrorCode {
-  INVALID_MOBILE_NUM(1000, "mobile.not.valid");
+  INVALID_MOBILE_NUM(1000, "mobile.not.valid"),
+  OBJECT_NOT_FOUND_OR_DELETED(1000, "object.not.found")
+  ;
 
   private final int code;
   private final String message;

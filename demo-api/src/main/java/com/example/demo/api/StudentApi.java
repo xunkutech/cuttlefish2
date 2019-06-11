@@ -1,24 +1,19 @@
 package com.example.demo.api;
 
-import io.swagger.annotations.ApiModelProperty;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
-import javax.validation.Valid;
+import io.swagger.annotations.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.validation.Valid;
 
 @RestController
-@RequestMapping(value = "/api/v1/students", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/v1", produces = MediaType.APPLICATION_JSON_VALUE)
 public interface StudentApi extends RestfulApi {
 
   @Data
@@ -32,6 +27,9 @@ public interface StudentApi extends RestfulApi {
 
     @ApiModelProperty(value = "学生性别")
     String gender;
+
+    @ApiModelProperty(value = "头像")
+    private MultipartFile portrait;
   }
 
   @ApiOperation(
@@ -39,12 +37,15 @@ public interface StudentApi extends RestfulApi {
       nickname = "createStudent",
       notes = "Awesome",
       tags = {
-          "student",
-      })
+        "student",
+      }
+  )
   @ApiResponses(value = {@ApiResponse(code = 200, message = "创建学生成功")})
-  @PostMapping(value = "")
+  @PostMapping(value = "/student")
+  @ApiImplicitParams (value = {
+          @ApiImplicitParam(name = "portrait", paramType = "form", dataType = "file")})
   default ResponseBean<Void> createStudent(
-      @ApiParam(value = "Created user object", required = true) @Valid @RequestBody
+      @ApiParam(value = "Created user object", required = true) @Valid
           CreateStudentRequestBean input) {
     return new ResponseBean<>();
   }

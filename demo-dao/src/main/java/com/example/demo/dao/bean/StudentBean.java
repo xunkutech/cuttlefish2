@@ -7,4 +7,6 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @SuperBuilder
-public class StudentBean extends PersonBean implements Jsonable {}
+public class StudentBean extends PersonBean implements Jsonable {
+
+}
