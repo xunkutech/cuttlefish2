@@ -1,14 +1,14 @@
 package com.example.demo.api;
 
+import com.example.demo.api.bean.ResponseBean;
 import com.example.demo.dao.util.JsonUtils;
-import com.example.demo.enums.Gender;
+import com.example.demo.model.enums.Gender;
 import io.swagger.annotations.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

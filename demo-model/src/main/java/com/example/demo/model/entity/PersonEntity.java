@@ -1,6 +1,6 @@
-package com.example.demo.model;
+package com.example.demo.model.entity;
 
-import com.example.demo.enums.Gender;
+import com.example.demo.model.enums.Gender;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

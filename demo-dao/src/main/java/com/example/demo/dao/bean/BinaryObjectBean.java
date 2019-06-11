@@ -1,6 +1,6 @@
 package com.example.demo.dao.bean;
 
-import com.example.demo.model.BinaryObjectEntity;
+import com.example.demo.model.entity.BinaryObjectEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

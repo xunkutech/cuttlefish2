@@ -4,14 +4,11 @@ import com.example.demo.dao.bean.BinaryObjectBean;
 import com.example.demo.dao.exception.CommonException;
 import com.example.demo.dao.exception.ErrorCode;
 import com.example.demo.dao.repo.BinaryObjectRepository;
-import com.example.demo.model.BinaryObjectEntity;
+import com.example.demo.model.entity.BinaryObjectEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
 
 @Repository
 @Transactional(

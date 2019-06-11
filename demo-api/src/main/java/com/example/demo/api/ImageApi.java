@@ -1,5 +1,6 @@
 package com.example.demo.api;
 
+import com.example.demo.api.bean.ResponseBean;
 import com.sun.javafx.binding.StringFormatter;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;

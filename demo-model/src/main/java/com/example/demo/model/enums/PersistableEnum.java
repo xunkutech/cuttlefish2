@@ -1,4 +1,4 @@
-package com.example.demo.enums;
+package com.example.demo.model.enums;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;

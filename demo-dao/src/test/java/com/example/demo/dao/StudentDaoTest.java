@@ -1,9 +1,7 @@
 package com.example.demo.dao;
 
-import com.example.demo.dao.bean.PersonBean;
 import com.example.demo.dao.bean.StudentBean;
-import com.example.demo.dao.repo.StudentEntityRepository;
-import com.example.demo.enums.Gender;
+import com.example.demo.model.enums.Gender;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,6 +1,6 @@
 package com.example.demo.dao.repo;
 
-import com.example.demo.model.PersonEntity;
+import com.example.demo.model.entity.PersonEntity;
 import org.springframework.data.repository.NoRepositoryBean;
 
 import java.util.Optional;

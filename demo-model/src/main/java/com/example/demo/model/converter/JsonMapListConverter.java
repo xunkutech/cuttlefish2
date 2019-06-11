@@ -1,4 +1,4 @@
-package com.example.demo.converter;
+package com.example.demo.model.converter;
 
 import java.util.List;
 import java.util.Map;

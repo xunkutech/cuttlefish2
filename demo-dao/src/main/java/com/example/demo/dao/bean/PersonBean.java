@@ -1,9 +1,8 @@
 package com.example.demo.dao.bean;
 
-import com.example.demo.enums.Gender;
+import com.example.demo.model.enums.Gender;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
-import org.springframework.web.multipart.MultipartFile;
 
 @Data
 @SuperBuilder

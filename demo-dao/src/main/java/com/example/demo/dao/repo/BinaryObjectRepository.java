@@ -1,6 +1,6 @@
 package com.example.demo.dao.repo;
 
-import com.example.demo.model.BinaryObjectEntity;
+import com.example.demo.model.entity.BinaryObjectEntity;
 import org.springframework.stereotype.Repository;
 
 /**

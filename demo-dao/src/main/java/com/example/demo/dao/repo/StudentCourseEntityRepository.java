@@ -1,6 +1,6 @@
 package com.example.demo.dao.repo;
 
-import com.example.demo.model.StudentCourseEntity;
+import com.example.demo.model.entity.StudentCourseEntity;
 
 import java.util.stream.Stream;
 

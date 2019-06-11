@@ -1,6 +1,6 @@
 package com.example.demo.dao.repo;
 
-import com.example.demo.model.BaseEntity;
+import com.example.demo.model.entity.BaseEntity;
 import net.jodah.typetools.TypeResolver;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;

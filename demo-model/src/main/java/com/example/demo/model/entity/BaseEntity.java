@@ -1,7 +1,7 @@
-package com.example.demo.model;
+package com.example.demo.model.entity;
 
-import com.example.demo.converter.BooleanStringConverter;
-import com.example.demo.converter.InstantConverter;
+import com.example.demo.model.converter.BooleanStringConverter;
+import com.example.demo.model.converter.InstantConverter;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedBy;
@@ -28,7 +28,7 @@ public abstract class BaseEntity {
           length = 64,
           columnDefinition = "CHAR(64)")
   @GeneratedValue(generator = "idGenerator")
-  @GenericGenerator(name = "idGenerator", strategy = "com.example.demo.util.UUIDGenerator")
+  @GenericGenerator(name = "idGenerator", strategy = "com.example.demo.model.util.UUIDGenerator")
   protected String id;
 
   /* Soft delete flag */
