@@ -28,19 +28,12 @@ public class StudentApiImpl implements StudentApi {
     studentBean =
         StudentBean.builder()
             .name(input.getName())
-            .gender(Gender.valueOf(input.getGender().toUpperCase()))
+            .gender(input.getGender())
                 .portraitBean(new BinaryObjectBean(input.getPortrait()))
             .build();
     studentDao.addOrUpdateStudent(studentBean);
     return new ResponseBean<>();
   }
 
-  @Override
-  public ResponseBean<String> test() {
-    log.error("error");
-    log.warn("warn");
-    log.info("info");
-    log.debug("debug");
-    return new ResponseBean<>("yes");
-  }
+
 }

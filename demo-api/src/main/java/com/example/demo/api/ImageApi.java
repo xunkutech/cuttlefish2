@@ -1,6 +1,7 @@
 package com.example.demo.api;
 
 import com.sun.javafx.binding.StringFormatter;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import lombok.Builder;
@@ -20,7 +21,8 @@ import java.util.Base64;
  **/
 @RestController
 @RequestMapping(value = "/api/v1/images", produces = MediaType.APPLICATION_JSON_VALUE)
-public interface ImageApi {
+@Api(value = "Image", tags = "Image")
+public interface ImageApi extends RestfulApi{
 
     @Data
      class ImageResponseBean {
