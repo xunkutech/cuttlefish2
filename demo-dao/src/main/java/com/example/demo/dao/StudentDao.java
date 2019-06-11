@@ -33,7 +33,7 @@ public class StudentDao extends AbstractDao {
 
     StudentEntity studentEntity =
             studentEntityRepository
-                    .findById(studentBean.getId() == null ? "" : studentBean.getId())
+                    .findById(studentBean.getId() == null ? 0L : studentBean.getId())
                     .orElseGet(() -> studentEntityRepository.newEntity());
 
     studentEntity.setName(studentBean.getName());

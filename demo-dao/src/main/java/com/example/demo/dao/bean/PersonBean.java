@@ -8,7 +8,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public abstract class PersonBean {
 
-  protected String id;
+  protected Long id;
 
   protected String name;
   protected Gender gender;

@@ -28,14 +28,14 @@ public interface ImageApi extends RestfulApi{
     @Data
      class ImageResponseBean {
         @ApiModelProperty(value = "资源id")
-        private String resourceId;
+        private Long resourceId;
         @ApiModelProperty(value = "mime类型")
         private String mimeType;
         @ApiModelProperty(value = "base64图片信息字符串")
         private String resourceBase64;
 
         @Builder
-        public ImageResponseBean(String resourceId, String mimeType, byte[] resourceDataBytes) {
+        public ImageResponseBean(Long resourceId, String mimeType, byte[] resourceDataBytes) {
             this.resourceId = resourceId;
             this.resourceBase64 = MessageFormat.format( "data:{0};base64,{1}" ,mimeType, new String(Base64.getEncoder().encode(resourceDataBytes)));
             this.mimeType=mimeType;
@@ -44,7 +44,7 @@ public interface ImageApi extends RestfulApi{
     @ApiOperation("通过RESTful API获取图片")
     @GetMapping("/{id}")
     default ResponseBean<ImageResponseBean> getImage(@PathVariable("id") String imageId) {
-        return new ResponseBean<>(new ImageResponseBean("DSWQ1231","img/jpg",null));
+        return new ResponseBean<>(new ImageResponseBean(123L,"img/jpg",null));
     }
 
 }

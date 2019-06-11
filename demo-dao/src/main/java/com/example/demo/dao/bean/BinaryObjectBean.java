@@ -18,7 +18,7 @@ import java.io.IOException;
 @NoArgsConstructor
 @Builder(toBuilder = true)
 public class BinaryObjectBean {
-  private String id;
+  private Long id;
   private byte[] data;
   private String mimeType;
   private Long size;

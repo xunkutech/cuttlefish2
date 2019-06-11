@@ -23,5 +23,5 @@ public abstract class PersonEntity extends BaseEntity {
 
 
   @Column(name = "portrait_id", nullable = false)
-  private String portraitId;
+  private Long portraitId;
 }

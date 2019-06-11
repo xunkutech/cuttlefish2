@@ -26,24 +26,18 @@ public class BinaryObjectEntity extends BaseEntity implements Serializable {
 
   @Column(name = "mime_type", length = 64, columnDefinition = "VARCHAR(64)")
   private String mimeType;
-  // 所属对象ID
-  @Column(name = "user_entity_id", length = 64, columnDefinition = "VARCHAR(64)")
-  private String userEntityId;
 
   @Lob
   @Column(name = "data")
   private byte[] data;
 
-  // 所属对象ID
-  @Column(name = "owner_id", length = 64, columnDefinition = "VARCHAR(64)")
-  private String ownerId;
 
-  @Builder
-  public BinaryObjectEntity(String id, byte[] data, String mimeType, Long size, String ownerId) {
+
+  @Builder(toBuilder = true)
+  public BinaryObjectEntity(Long id, byte[] data, String mimeType, Long size) {
     this.id = id;
     this.data = data;
     this.mimeType = mimeType;
     this.size=size;
-    this.ownerId =ownerId;
   }
 }

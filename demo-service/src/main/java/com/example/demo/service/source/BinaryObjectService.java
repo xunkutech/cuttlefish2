@@ -23,6 +23,6 @@ public class BinaryObjectService {
    * @Author: Sarah Xu @Date: 2019/6/10
    */
   public BinaryObjectBean getBinaryObject(String objectId) {
-    return binaryObjectDao.getBinaryObjectByID(objectId);
+    return binaryObjectDao.getBinaryObjectByID(Long.valueOf(objectId));
   }
 }

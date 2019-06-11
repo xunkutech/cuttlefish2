@@ -25,11 +25,8 @@ public abstract class BaseEntity {
           unique = true,
           nullable = false,
           updatable = false,
-          length = 64,
-          columnDefinition = "CHAR(64)")
-  @GeneratedValue(generator = "idGenerator")
-  @GenericGenerator(name = "idGenerator", strategy = "com.example.demo.model.util.UUIDGenerator")
-  protected String id;
+          columnDefinition = "BIGINT")
+  protected Long id;
 
   /* Soft delete flag */
   @Column(name = "active_status", nullable = false)

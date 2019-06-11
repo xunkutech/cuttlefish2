@@ -19,12 +19,12 @@ public class BinaryObjectDao extends AbstractDao {
   @Autowired
   BinaryObjectRepository binaryObjectRepository;
 
-  public BinaryObjectBean getBinaryObjectByID(String objectId){
+  public BinaryObjectBean getBinaryObjectByID(Long objectId){
     return new BinaryObjectBean(binaryObjectRepository.findById(objectId).orElseThrow(()->new CommonException(ErrorCode.OBJECT_NOT_FOUND_OR_DELETED)));
   }
   public BinaryObjectBean saveBinaryObject(BinaryObjectBean binaryObjectBean){
 
-      binaryObjectBean = new BinaryObjectBean(binaryObjectRepository.saveAndFlush(BinaryObjectEntity.builder().data(binaryObjectBean.getData()).mimeType(binaryObjectBean.getMimeType()).size(binaryObjectBean.getSize()).build()));
+      binaryObjectBean = new BinaryObjectBean(binaryObjectRepository.saveAndFlush(binaryObjectRepository.newEntity().toBuilder().data(binaryObjectBean.getData()).mimeType(binaryObjectBean.getMimeType()).size(binaryObjectBean.getSize()).build()));
     return  binaryObjectBean;
   }
 

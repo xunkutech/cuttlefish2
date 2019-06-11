@@ -1,5 +1,6 @@
 package com.example.demo.dao.repo;
 
+import com.example.demo.dao.util.IdGenerator;
 import com.example.demo.model.entity.BaseEntity;
 import net.jodah.typetools.TypeResolver;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,19 +17,20 @@ import java.util.UUID;
 
 @NoRepositoryBean
 public interface BaseEntityRepository<E extends BaseEntity>
-    extends JpaRepository<E, String>, JpaSpecificationExecutor<E> {
+    extends JpaRepository<E, Long>, JpaSpecificationExecutor<E> {
 
   String SYS_ID = "00000001";
   String MACHINE_ID = "00000001";
 
-  default String genUuid() {
-    ByteBuffer byteBuffer = ByteBuffer.allocate(Long.BYTES);
-    byteBuffer.putLong(System.currentTimeMillis());
-    return new StringBuffer(SYS_ID)
-        .append(MACHINE_ID)
-        .append(DatatypeConverter.printHexBinary(byteBuffer.array()).toLowerCase())
-        .append(UUID.randomUUID().toString().replace("-", ""))
-        .toString();
+  default Long genUuid() {
+//    ByteBuffer byteBuffer = ByteBuffer.allocate(Long.BYTES);
+//    byteBuffer.putLong(System.currentTimeMillis());
+//    return new StringBuffer(SYS_ID)
+//        .append(MACHINE_ID)
+//        .append(DatatypeConverter.printHexBinary(byteBuffer.array()).toLowerCase())
+//        .append(UUID.randomUUID().toString().replace("-", ""))
+//        .toString();
+    return IdGenerator.getId();
   }
 
   @SuppressWarnings("unchecked")
