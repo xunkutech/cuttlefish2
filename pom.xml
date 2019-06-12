@@ -22,7 +22,7 @@
         <project.build.sourceEncoding>${file.encoding}</project.build.sourceEncoding>
         <project.build.resourceEncoding>${file.encoding}</project.build.resourceEncoding>
         <project.reporting.outputEncoding>${file.encoding}</project.reporting.outputEncoding>
-
+        <poi.version>4.1.0</poi.version>
         <swagger.version>2.9.2</swagger.version>
         <typetools.version>0.6.1</typetools.version>
     </properties>
@@ -92,7 +92,11 @@
                     </exclusion>
                 </exclusions>
             </dependency>
-
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

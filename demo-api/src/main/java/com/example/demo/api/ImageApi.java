@@ -8,10 +8,8 @@ import io.swagger.annotations.ApiOperation;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.text.MessageFormat;
 import java.util.Base64;
@@ -44,6 +42,12 @@ public interface ImageApi extends RestfulApi{
     @ApiOperation("通过RESTful API获取图片")
     @GetMapping("/{id}")
     default ResponseBean<ImageResponseBean> getImage(@PathVariable("id") String imageId) {
+        return new ResponseBean<>(new ImageResponseBean(123L,"img/jpg",null));
+    }
+
+    @ApiOperation("预览图片: 上传图片并返回图片的id")
+    @PostMapping("/preview")
+    default ResponseBean<ImageResponseBean> getImage( @RequestPart(required = true) MultipartFile file) {
         return new ResponseBean<>(new ImageResponseBean(123L,"img/jpg",null));
     }
 

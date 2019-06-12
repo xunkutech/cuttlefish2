@@ -16,3 +16,9 @@ spring:
 
 
 
+
+
+
+export:
+  cron: 5 * * * * ?
+  directory: o:\\

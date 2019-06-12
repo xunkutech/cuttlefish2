@@ -18,10 +18,23 @@ public class BinaryObjectDao extends AbstractDao {
 
   @Autowired
   BinaryObjectRepository binaryObjectRepository;
-
+/**
+* @Description: 根据id获取二进制文件
+* @Param: [objectId]
+* @return: com.example.demo.dao.bean.BinaryObjectBean
+* @Author: Sarah Xu
+* @Date: 2019/6/12
+*/
   public BinaryObjectBean getBinaryObjectByID(Long objectId){
     return new BinaryObjectBean(binaryObjectRepository.findById(objectId).orElseThrow(()->new CommonException(ErrorCode.OBJECT_NOT_FOUND_OR_DELETED)));
   }
+  /**
+  * @Description: 保存二进制文件
+  * @Param: [binaryObjectBean]
+  * @return: com.example.demo.dao.bean.BinaryObjectBean
+  * @Author: Sarah Xu
+  * @Date: 2019/6/12
+  */
   public BinaryObjectBean saveBinaryObject(BinaryObjectBean binaryObjectBean){
 
       binaryObjectBean = new BinaryObjectBean(binaryObjectRepository.saveAndFlush(binaryObjectRepository.newEntity().toBuilder().data(binaryObjectBean.getData()).mimeType(binaryObjectBean.getMimeType()).size(binaryObjectBean.getSize()).build()));

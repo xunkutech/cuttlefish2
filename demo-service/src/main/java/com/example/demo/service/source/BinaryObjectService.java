@@ -12,11 +12,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class BinaryObjectService {
   private BinaryObjectDao binaryObjectDao;
-
   @Autowired
   public BinaryObjectService(BinaryObjectDao binaryObjectDao) {
     this.binaryObjectDao = binaryObjectDao;
   }
+
+
   /**
    * @Description: 获取二进制对象 @Param: [objectId]
    * @return: com.example.demo.dao.bean.BinaryObjectBean
